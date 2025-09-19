@@ -1,0 +1,213 @@
+xwayland enable
+
+### Variables
+set $mod Mod4
+
+### Startup
+exec_always --no-startup-id dbus-update-activation-environment --systemd --all
+exec_always --no-startup-id dunst
+exec_always --no-startup-id /usr/libexec/polkit-gnome-authentication-agent-1
+exec_always --no-startup-id swayosd-server
+exec autotiling-rs
+
+### Output configuration
+output * bg $HOME/Pictures/Wallpapers/MC_snow_sun.png fill
+
+### Idle configuration
+exec swayidle -w \
+         timeout 300 'aylock -f' \
+         timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+         before-sleep 'swaylock -f'
+
+### Input configuration
+  input type:touchpad {
+      dwt enabled
+      tap enabled
+      accel_profile flat
+      natural_scroll enabled
+      events disabled_on_external_mouse
+  }
+
+  input type:keyboard {
+      repeat_delay 200
+      repeat_rate 40
+  }
+
+  input type:pointer {
+      dwt enabled
+      accel_profile flat
+      pointer_accel 0.0
+      scroll_factor 1.0
+  }
+
+  seat seat0 xcursor_theme Adwaita 24
+  seat seat0 hide_cursor when-typing enabled
+
+### Key bindings
+# Start a terminal
+bindsym $mod+q exec foot
+
+# Neovim
+bindsym $mod+n exec foot -e nvim
+
+# Start file managers
+bindsym $mod+e exec foot -e yazi
+bindsym $mod+Ctrl+e exec nemo
+
+# Locksreen
+bindsym $mod+l exec swaylock
+
+# Start emojis chooser
+bindsym $mod+Period exec flatpak run com.tomjwatson.Emote
+
+# Kill focused window
+bindsym $mod+c kill
+
+# Start launcher
+bindsym $mod+Return exec $HOME/.config/rofi/launcher/launcher.sh
+
+# Start powermenu
+bindsym $mod+Shift+e exec $HOME/.config/rofi/powermenu/powermenu.sh
+
+floating_modifier $mod normal
+
+bindsym $mod+Shift+c reload
+
+# Moving around
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+bindsym $mod+Ctrl+Left move left
+bindsym $mod+Ctrl+Down move down
+bindsym $mod+Ctrl+Up move up
+bindsym $mod+Ctrl+Right move right
+
+# Workspaces
+bindsym $mod+1 workspace number 1
+bindsym $mod+2 workspace number 2
+bindsym $mod+3 workspace number 3
+bindsym $mod+4 workspace number 4
+bindsym $mod+5 workspace number 5
+bindsym $mod+6 workspace number 6
+bindsym $mod+7 workspace number 7
+bindsym $mod+8 workspace number 8
+bindsym $mod+9 workspace number 9
+bindsym $mod+0 workspace number 10
+
+bindsym $mod+Ctrl+1 move container to workspace number 1
+bindsym $mod+Ctrl+2 move container to workspace number 2
+bindsym $mod+Ctrl+3 move container to workspace number 3
+bindsym $mod+Ctrl+4 move container to workspace number 4
+bindsym $mod+Ctrl+5 move container to workspace number 5
+bindsym $mod+Ctrl+6 move container to workspace number 6
+bindsym $mod+Ctrl+7 move container to workspace number 7
+bindsym $mod+Ctrl+8 move container to workspace number 8
+bindsym $mod+Ctrl+9 move container to workspace number 9
+bindsym $mod+Ctrl+0 move container to workspace number 10
+
+# Layout stuff
+bindsym $mod+h splith
+bindsym $mod+v splitv
+
+# bindsym $mod+s layout stacking
+# bindsym $mod+w layout tabbed
+# bindsym $mod+e layout toggle split
+
+bindsym $mod+f fullscreen
+bindsym $mod+a floating toggle
+bindsym $mod+d focus mode_toggle
+# bindsym $mod+a focus parent
+
+# Scratchpad
+# bindsym $mod+Shift+minus move scratchpad
+# bindsym $mod+minus scratchpad show
+
+# Resizing containers
+mode "resize" {
+    # Ditto, with arrow keys
+    bindsym Left resize shrink width 10px
+    bindsym Down resize grow height 10px
+    bindsym Up resize shrink height 10px
+    bindsym Right resize grow width 10px
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+bindsym $mod+Shift+Left    resize shrink width  5 px or 5 ppt
+bindsym $mod+Shift+Up      resize grow   height 5 px or 5 ppt
+bindsym $mod+Shift+Down    resize shrink height 5 px or 5 ppt
+bindsym $mod+Shift+Right   resize grow   width  5 px or 5 ppt
+
+# Utilities
+# bindsym --locked XF86AudioMute exec pactl set-sink-mute \@DEFAULT_SINK@ toggle
+# bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume \@DEFAULT_SINK@ -2%
+# bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume \@DEFAULT_SINK@ +2%
+# bindsym --locked XF86AudioMicMute exec pactl set-source-mute \@DEFAULT_SOURCE@ toggle
+# bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
+# bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
+
+bindsym XF86AudioRaiseVolume exec swayosd-client --output-volume +2 --max-volume 150
+bindsym XF86AudioLowerVolume exec swayosd-client --output-volume -2 --max-volume 150
+bindsym XF86AudioMute exec swayosd-client --output-volume mute-toggle
+bindsym XF86AudioMicMute exec swayosd-client --input-volume mute-toggle
+bindsym XF86MonBrightnessUp  exec swayosd-client --brightness +5
+bindsym XF86MonBrightnessDown exec swayosd-client --brightness -5
+
+# Screenshot
+bindsym Alt+Shift+s exec $HOME/.local/bin/full-sreenshot.sh
+bindsym $mod+Shift+s exec $HOME/.local/bin/select-screenshot.sh
+
+# Focus mouse
+focus_follows_mouse no
+
+# Gaps
+gaps inner 12px
+gaps outer 0px
+
+# Borders
+default_border none
+for_window [class=".*"] border pixel 4
+smart_borders on
+
+# Dialog windows
+for_window [window_role="GtkFileChooserDialog"] floating enable
+for_window [window_role="GtkFileChooserDialog"] resize set 1000 800
+for_window [window_role="GtkFileChooserDialog"] move position center
+for_window [app_id="zen" title="Save Image"] floating enable
+for_window [app_id="zen" title="Save Image"] resize set 1000 800
+for_window [app_id="zen" title="Save Image"] move position center
+for_window [app_id="org.gnome.Calculator" title="Calculator"] floating enable
+for_window [app_id="^launcher$"] floating enable, sticky enable
+
+# Status Bar
+bar {
+  swaybar_command waybar
+}
+
+# Rose Pine theme
+set $base           #191724
+set $surface        #1f1d2e
+set $overlay        #26233a
+set $muted          #6e6a86
+set $subtle         #908caa
+set $text           #e0def4
+set $love           #eb6f92
+set $gold           #f6c177
+set $rose           #ebbcba
+set $pine           #31748f
+set $foam           #9ccfd8
+set $iris           #c4a7e7
+set $highlightlow   #21202e
+set $highlightmed   #403d52
+set $highlighthigh  #524f67
+
+# target                 title     bg     text    indicator  border
+client.focused           $iris     $base  $text   $iris      $iris
+client.focused_inactive  $text     $base  $text   $base      $surface
+client.unfocused         $text     $base  $text   $overlay   $overlay
+client.urgent            $text     $base  $text   $love      $love
+client.placeholder       $base     $base  $text   $overlay   $overlay
+client.background        $base

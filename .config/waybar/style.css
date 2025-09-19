@@ -1,0 +1,101 @@
+* {
+  font-family: "Lilex Nerd Font Propo";
+  font-size: 17px;
+  border-radius: 0px;
+}
+
+.modules-left {
+  background-color: #191724;
+  color: #e0def4;
+}
+
+.modules-right {
+  background-color: #26233a;
+  color: #e0def4;
+}
+
+#workspaces button {
+  background: #26233a;
+  min-width: 1px;
+  color: #e0def4;
+  padding: 4px 11px 4px 11px;
+}
+
+#workspaces button.focused {
+  background-color: #c4a7e7;
+  color: #191724;
+}
+
+#window {
+  background-color: #191724;
+  padding: 0px 15px;
+}
+
+window#waybar.empty #window {
+  background-color: transparent;
+  color: transparent;
+}
+
+#network {
+  padding-left: 15px;
+}
+
+#cpu {
+  padding-right: 15px;
+}
+
+#pulseaudio {
+  padding-right: 15px;
+}
+
+#battery {
+  padding-right: 15px;
+}
+
+#bluetooth {
+  font-size: 19px;
+  padding-left: 13px;
+}
+
+#clock {
+  background-color: #1f1d2e;
+  padding: 0px 15px;
+}
+
+#mpris {
+  background-color: #1f1d2e;
+  padding: 0px 15px;
+}
+
+#tray {
+  background-color: #191724;
+  padding: 0px 15px;
+}
+
+#bluetooth.connected {
+  color: #9ccfd8;
+}
+
+#pulseaudio.warning,
+#battery.warning {
+  color: #ebbcba;
+}
+
+#pulseaudio.critical,
+#battery.critical,
+#battery.full {
+  color: #eb6f92;
+}
+
+#battery.charging {
+  color: #f6c177;
+}
+
+#bluetooth.off,
+#network.disabled,
+#network.disconnected,
+#pulseaudio.muted,
+#pulseaudio.muted.warning,
+#pulseaudio.muted.critical {
+  color: #6e6a86;
+}

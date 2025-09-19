@@ -1,0 +1,16 @@
+window#osd {
+  border-radius: 10px;
+  border: none;
+  background: alpha(@theme_bg_color, 0.6);
+}
+
+#container {
+  background: transparent;
+  margin: 7px;
+}
+
+.title-4 {
+  color: #e0def4;
+  font-size: 16px;
+  font-family: Lilex Nerd Font Mono;
+}
