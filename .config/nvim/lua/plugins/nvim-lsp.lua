@@ -24,24 +24,27 @@ return {
 	{
 		"neovim/nvim-lspconfig",
 		config = function()
-			local notify = vim.notify
-			vim.notify = function(msg, ...)
-				if msg:match("require%('lspconfig'%)") then
-					return
-				end
-				notify(msg, ...)
-			end
-
-			local lspconfig = require("lspconfig")
 			local capabilities = require("blink.cmp").get_lsp_capabilities()
 
-			lspconfig.lua_ls.setup({
+			vim.lsp.config("lua_ls", {
 				capabilities = capabilities,
 			})
-			lspconfig.html.setup({ capabilities = capabilities })
-			lspconfig.cssls.setup({ capabilities = capabilities })
-			lspconfig.clangd.setup({ capabilities = capabilities })
-			lspconfig.pyright.setup({ capabilities = capabilities })
+
+			vim.lsp.config("html", {
+				capabilities = capabilities,
+			})
+
+			vim.lsp.config("cssls", {
+				capabilities = capabilities,
+			})
+
+			vim.lsp.config("clangd", {
+				capabilities = capabilities,
+			})
+
+			vim.lsp.config("pyright", {
+				capabilities = capabilities,
+			})
 		end,
 	},
 }
