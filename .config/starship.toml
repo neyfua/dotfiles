@@ -3,16 +3,17 @@
 add_newline = false
 
 format = """
-$git_branch\
-$package\
-$directory\
 $python\
-$character\
+$git_branch\
+$directory\
 """
 
 palette = "rose-pine"
 
 [palettes.rose-pine]
+base = '#191724'
+surface = '#1f1d2e'
+overlay = '#26233a'
 love = '#eb6f92'
 gold = '#f6c177'
 rose = '#ebbcba'
@@ -20,32 +21,25 @@ pine = '#31748f'
 foam = '#9ccfd8'
 iris = '#c4a7e7'
 text = '#e0def4'
-
-[character]
-disabled = false
-format = "$symbol "
-success_symbol = "[|](fg:text)"
-error_symbol = "[|](fg:love)"
+subtle = '#908caa'
+muted = '#6e6a86'
+highlight-low = '#21202e'
+highlight-med = '#403d52'
+highlight-high = '#524f67'
 
 [directory]
 disabled = false
-format = " [$path]($style) "
-style = "fg:foam"
-truncation_length = 3
-truncation_symbol = "…/"
+format = "[ $path ]($style) "
+style = "bg:overlay fg:text"
+# truncation_length = 3
+# truncation_symbol = "…/"
 
 [git_branch]
 disabled = false
-format = " [$symbol$branch]($style), "
-style = "fg:rose"
+format = "[ $symbol$branch ]($style)"
+style = "bg:surface fg:text"
 symbol = " "
-
-[package]
-disabled = false
-format = " [$symbol$version]($style), "
-style = "fg:gold"
-symbol = " "
 
 [python]
 format = '[(\($virtualenv\) )]($style)'
-style = "fg:pine"
+style = "fg:iris"

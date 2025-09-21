@@ -2,7 +2,7 @@
 if status is-interactive
 
   # starship
-  # starship init fish | source
+  starship init fish | source
 
   # yazi
   function y
