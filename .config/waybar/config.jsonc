@@ -6,7 +6,7 @@
   "fixed-center": true,
   "gtk-layer-shell": true,
 
-  "modules-left": ["niri/workspaces", "sway/workspaces", "mpris", "sway/window"],
+  "modules-left": ["niri/workspaces", "sway/workspaces", "mpris", "sway/window", "niri/window"],
   "modules-center": [],
   "modules-right": [
     "network",
@@ -41,6 +41,10 @@
     "all-outputs" : true,
     "offscreen-css" : true,
     "offscreen-css-text": "(inactive)",
+   },
+
+    "niri/window": {
+    "format": "{app_id} ~",
    },
 
   "network": {
