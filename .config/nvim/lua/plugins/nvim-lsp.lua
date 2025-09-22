@@ -16,7 +16,6 @@ return {
 					"cssls",
 					"lua_ls",
 					"pyright",
-					"intelephense",
 				},
 			})
 		end,
@@ -44,14 +43,6 @@ return {
 			})
 
 			vim.lsp.config("pyright", {
-				capabilities = capabilities,
-			})
-
-			vim.lsp.config("intelephense", {
-				capabilities = capabilities,
-			})
-
-			vim.lsp.config("codebook", {
 				capabilities = capabilities,
 			})
 		end,

@@ -15,7 +15,6 @@ return {
 				cpp = { "clang-format" },
 				cs = { "clang-format" },
 				json = { "clang-format", "prettierd", "prettier", stop_after_first = true },
-				php = { "pretty-php" },
 			},
 
 			format_on_save = {
