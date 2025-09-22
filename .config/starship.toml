@@ -5,6 +5,7 @@ add_newline = true
 format = """
 $python\
 $git_branch\
+$shell\
 $directory\
 """
 
@@ -29,15 +30,21 @@ highlight-high = '#524f67'
 
 [directory]
 disabled = false
+truncation_symbol = '…/'
 format = "[ $path ]($style) "
 style = "bg:overlay fg:text"
-# truncation_length = 3
-# truncation_symbol = "…/"
+
+[shell]
+disabled = false
+bash_indicator = "/bin/bash"
+fish_indicator = "/bin/fish"
+format = "[ $indicator ]($style)"
+style = "bg:surface fg:text"
 
 [git_branch]
 disabled = false
 format = "[ $symbol$branch ]($style)"
-style = "bg:surface fg:text"
+style = "bg:highlight-med fg:text"
 symbol = " "
 
 [python]
