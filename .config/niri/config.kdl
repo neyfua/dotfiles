@@ -156,7 +156,7 @@ hotkey-overlay {
 
 animations {
     // off
-    slowdown 0.6
+    slowdown 0.4
   }
 
 // window-rule {
