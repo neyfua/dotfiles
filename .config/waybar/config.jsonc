@@ -120,7 +120,8 @@
 
   "memory": {
     "interval": 1,
-    "format": " {percentage}%",
+    // "format": " {percentage}%",
+    "format": " {used}gb",
     "tooltip": false,
   },
 
