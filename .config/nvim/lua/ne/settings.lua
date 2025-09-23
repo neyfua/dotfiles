@@ -38,3 +38,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 vim.g.have_nerd_font = true
 vim.opt.fillchars:append({ eob = " " })
 vim.opt.guicursor = ""
+
+if vim.g.vscode then
+	vim.o.cmdheight = 50
+end
