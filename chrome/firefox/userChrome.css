@@ -44,13 +44,16 @@
 
 /* URL bar icons */
 #identity-permission-box,
-#star-button-box,
 #identity-icon-box,
 #picture-in-picture-button,
 #tracking-protection-icon-container,
 #reader-mode-button,
 #translations-button {
   display: none !important;
+}
+
+#star-button-box {
+  display: relative !important;
 }
 
 /* "This time search with:..." */
