@@ -38,6 +38,8 @@ set -gx PATH $HOME/.local/bin $PATH
 set -gx PATH $HOME/.cargo/bin $PATH
 set -gx PATH /usr/local/bin $PATH
 set -gx PATH $HOME/bin $PATH
+set -gx DOTNET_ROOT $HOME/.dotnet
+set -gx PATH $DOTNET_ROOT $PATH
 set -gx EDITOR nvim
 set -gx LS_COLORS (vivid generate rose-pine)
 set -Ux PYTHONHISTFILE /dev/null
