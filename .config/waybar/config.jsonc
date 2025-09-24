@@ -148,7 +148,6 @@
 
   "tray": {
     "icon-size": 18,
-    "show-passive-items": false,
     "spacing": 10,
   },
 
