@@ -11,11 +11,17 @@ return {
 		config = function()
 			require("mason-lspconfig").setup({
 				ensure_installed = {
-					"clangd",
+					"bashls",
+					"fish_lsp",
+					"lua_ls",
 					"html",
 					"cssls",
-					"lua_ls",
 					"pyright",
+					"clangd",
+					"omnisharp",
+					"jdtls",
+					"ts_ls",
+					"jsonls",
 					"intelephense",
 				},
 			})
@@ -26,6 +32,14 @@ return {
 		"neovim/nvim-lspconfig",
 		config = function()
 			local capabilities = require("blink.cmp").get_lsp_capabilities()
+
+			vim.lsp.config("bashls", {
+				capabilities = capabilities,
+			})
+
+			vim.lsp.config("fish_lsp", {
+				capabilities = capabilities,
+			})
 
 			vim.lsp.config("lua_ls", {
 				capabilities = capabilities,
@@ -39,11 +53,27 @@ return {
 				capabilities = capabilities,
 			})
 
+			vim.lsp.config("pyright", {
+				capabilities = capabilities,
+			})
+
 			vim.lsp.config("clangd", {
 				capabilities = capabilities,
 			})
 
-			vim.lsp.config("pyright", {
+			vim.lsp.config("omnisharp", {
+				capabilities = capabilities,
+			})
+
+			vim.lsp.config("jdtls", {
+				capabilities = capabilities,
+			})
+
+			vim.lsp.config("ts_ls", {
+				capabilities = capabilities,
+			})
+
+			vim.lsp.config("jsonls", {
 				capabilities = capabilities,
 			})
 
