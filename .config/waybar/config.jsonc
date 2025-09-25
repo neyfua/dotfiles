@@ -1,158 +1,183 @@
 {
-  "height": 27,
-
-  "layer": "bottom",
-  "position": "top",
-  "fixed-center": true,
-  "gtk-layer-shell": true,
-
-  "modules-left": ["niri/workspaces", "sway/workspaces", "mpris", "sway/window", "niri/window"],
-  "modules-center": [],
-  "modules-right": [
-    "network",
-    "bluetooth",
-    "custom/split",
-    "cpu",
-    "memory",
-    "custom/split",
-    "pulseaudio",
-    "backlight",
-    "custom/split",
-    "battery",
-    "clock",
-    "tray",
-  ],
-
-  "niri/workspaces": {
-    "format": "{value}",
-    "tooltip": false,
-  },
-
-  "sway/workspaces": {
-    "disable-scroll": true,
-    "disable-markup": true,
-    "format": "{index}",
-    "tooltip": false,
-  },
-
-  "sway/window": {
-    "format": "{app_id} ~",
-    "max-length": 30,
-    "all-outputs" : true,
-    "offscreen-css" : true,
-    "offscreen-css-text": "(inactive)",
+   "height": 27,
+   "layer": "bottom",
+   "position": "top",
+   "fixed-center": true,
+   "gtk-layer-shell": true,
+   "modules-left": [
+      "niri/workspaces",
+      "mpris",
+      "niri/window"
+   ],
+   "modules-center": [],
+   "modules-right": [
+      "network",
+      "bluetooth",
+      "custom/split",
+      "cpu",
+      "memory",
+      "custom/split",
+      "pulseaudio",
+      "backlight",
+      "custom/split",
+      "battery",
+      "clock",
+      "tray",
+   ],
+   "niri/workspaces": {
+      "format": "{value}",
+      "tooltip": false,
    },
-
-    "niri/window": {
-    "format": "{app_id} ~",
+   "sway/workspaces": {
+      "disable-scroll": true,
+      "disable-markup": true,
+      "format": "{index}",
+      "tooltip": false,
    },
-
-  "network": {
-    "interval": 1,
-    "format": "{icon}",
-    "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
-    "format-ethernet": "",
-    "format-disconnected": "󱘖",
-    "format-disabled": "󰤭",
-    "on-click": "foot fish -c nmtui-connect",
-    "on-click-right": "nmcli device status | grep wlp0s20f3 | grep -q connected && nmcli device disconnect wlp0s20f3 || nmcli device connect wlp0s20f3",
-    "tooltip": false,
-  },
-
-    "bluetooth": {
-    "format-disabled": "",
-    "format-connected": "󰂱",
-    "format-off": "󰂲",
-    "format-on": "󰂯",
-    "tooltip": false,
-    "on-click": "foot bash -c bluetui",
-    "on-click-right": "bash -c 'if bluetoothctl show | grep -q \"Powered: yes\"; then bluetoothctl power off; else bluetoothctl power on; sleep 1; dev=$(bluetoothctl devices | grep -m1 Device | awk \"{print \\$2}\"); [ -n \"$dev\" ] && bluetoothctl connect $dev; fi'",
-  },
-
-
-  "pulseaudio": {
-    "format": "{icon} {volume}%",
-    "format-bluetooth": " {volume}%",
-    "format-muted": " {volume}%",
-    "format-icons": {
-      "headphone": "",
-      "headset": "",
-      "default": ["", "", "", "", "", "", "", "", "", "", ""],
-    },
-    "states": {
-      "normal": 40,
-      "warning": 100,
-      "critical": 150,
-    },
-    "on-click": "swayosd-client --output-volume mute-toggle",
-    "on-click-right": "pavucontrol",
-    "tooltip": false,
-  },
-
-  "battery": {
-    "interval": 1,
-    "states": {
-      "warning": 25,
-      "critical": 15,
-    },
-    "format": "{icon} {capacity}%",
-    "format-icons": {
-      "full": ["󰂃"],
-      "charging": [""],
-      "discharging": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
-    },
-    "tooltip": false,
-  },
-
-  "backlight": {
-    "format": "{icon} {percent}%",
-    "format-icons": ["󰃞", "󰃟", "󰃠"],
-    "on-click": "swayosd-client --brightness +5",
-    "on-click-right": "swayosd-client --brightness -5",
-    "tooltip": false,
-  },
-
-  "cpu": {
-    "interval": 1,
-    "format": " {usage}%",
-    "tooltip": false,
-  },
-
-  "memory": {
-    "interval": 1,
-    // "format": " {percentage}%",
-    "format": " {used}gb",
-    "tooltip": false,
-  },
-
-  "mpris": {
-	"format": "{player_icon} {title}, {artist}",
-   "player-icons": {
-      "default": "▶",
-      "spotify": "<span foreground='#1DB954'></span>",
-   "status-icons": {
-		"paused": "⏸"
-	   },
-	},
-   "ignored-players": ["firefox"],
-   "title-len": 45,
-   "artist-len": 20,
-   "tooltip": false,
+   "sway/window": {
+      "format": "{app_id} ~",
+      "max-length": 30,
+      "all-outputs": true,
+      "offscreen-css": true,
+      "offscreen-css-text": "(inactive)",
    },
-
-  "clock": {
-    "format": "{:>%a, %b %d %Y | %I:%M %p}",
-    "interval": 1,
-    "tooltip": false,
-  },
-
-  "tray": {
-    "icon-size": 18,
-    "spacing": 10,
-  },
-
-  "custom/split": {
-    "format": " | ",
-    "tooltip": false,
-  },
+   "niri/window": {
+      "format": "{app_id} ~",
+   },
+   "network": {
+      "interval": 1,
+      "format": "{icon}",
+      "format-icons": [
+         "󰤯",
+         "󰤟",
+         "󰤢",
+         "󰤥",
+         "󰤨"
+      ],
+      "format-ethernet": "",
+      "format-disconnected": "󱘖",
+      "format-disabled": "󰤭",
+      "on-click": "foot fish -c nmtui-connect",
+      "on-click-right": "nmcli device status | grep wlp0s20f3 | grep -q connected && nmcli device disconnect wlp0s20f3 || nmcli device connect wlp0s20f3",
+      "tooltip": false,
+   },
+   "bluetooth": {
+      "format-disabled": "",
+      "format-connected": "󰂱",
+      "format-off": "󰂲",
+      "format-on": "󰂯",
+      "tooltip": false,
+      "on-click": "foot bash -c bluetui",
+      "on-click-right": "bash -c 'if bluetoothctl show | grep -q \"Powered: yes\"; then bluetoothctl power off; else bluetoothctl power on; sleep 1; dev=$(bluetoothctl devices | grep -m1 Device | awk \"{print \\$2}\"); [ -n \"$dev\" ] && bluetoothctl connect $dev; fi'",
+   },
+   "pulseaudio": {
+      "format": "{icon} {volume}%",
+      "format-bluetooth": " {volume}%",
+      "format-muted": " {volume}%",
+      "format-icons": {
+         "headphone": "",
+         "headset": "",
+         "default": [
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+         ],
+      },
+      "states": {
+         "normal": 40,
+         "warning": 100,
+         "critical": 150,
+      },
+      "on-click": "swayosd-client --output-volume mute-toggle",
+      "on-click-right": "pavucontrol",
+      "tooltip": false,
+   },
+   "battery": {
+      "interval": 1,
+      "states": {
+         "warning": 25,
+         "critical": 15,
+      },
+      "format": "{icon} {capacity}%",
+      "format-icons": {
+         "full": [
+            "󰂃"
+         ],
+         "charging": [
+            ""
+         ],
+         "discharging": [
+            "󰁺",
+            "󰁻",
+            "󰁼",
+            "󰁽",
+            "󰁾",
+            "󰁿",
+            "󰂀",
+            "󰂁",
+            "󰂂",
+            "󰁹"
+         ],
+      },
+      "tooltip": false,
+   },
+   "backlight": {
+      "format": "{icon} {percent}%",
+      "format-icons": [
+         "󰃞",
+         "󰃟",
+         "󰃠"
+      ],
+      "on-click": "swayosd-client --brightness +5",
+      "on-click-right": "swayosd-client --brightness -5",
+      "tooltip": false,
+   },
+   "cpu": {
+      "interval": 1,
+      "format": " {usage}%",
+      "tooltip": false,
+   },
+   "memory": {
+      "interval": 1,
+      // "format": " {percentage}%",
+      "format": " {used}gb",
+      "tooltip": false,
+   },
+   "mpris": {
+      "format": "{player_icon} {title}, {artist}",
+      "player-icons": {
+         "default": "▶",
+         "spotify": "<span foreground='#1DB954'></span>",
+         "status-icons": {
+            "paused": "⏸"
+         },
+      },
+      "ignored-players": [
+         "firefox"
+      ],
+      "title-len": 45,
+      "artist-len": 20,
+      "tooltip": false,
+   },
+   "clock": {
+      "format": "{:>%a, %b %d %Y | %I:%M %p}",
+      "interval": 1,
+      "tooltip": false,
+   },
+   "tray": {
+      "icon-size": 18,
+      "spacing": 10,
+   },
+   "custom/split": {
+      "format": " | ",
+      "tooltip": false,
+   },
 }
