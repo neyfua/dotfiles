@@ -207,18 +207,18 @@ window-rule {
   default-window-height { proportion 0.8; }
 }
 
-// layer-rule {
-//   match namespace="rofi"
-//   match namespace="waybar"
-//   shadow {
-//     on
-//     draw-behind-window true
-//     softness 40
-//     spread 1
-//     offset x=0 y=0
-//     color "#0007"
-//     }
-// }
+layer-rule {
+  match namespace="rofi"
+  match namespace="waybar"
+  shadow {
+    on
+    draw-behind-window true
+    softness 40
+    spread 1
+    offset x=0 y=0
+    color "#0007"
+    }
+}
 
 layer-rule {
     match namespace="^quickshell-overview$"
@@ -237,19 +237,19 @@ binds {
     Mod+Shift+E repeat=false    { spawn "~/.config/rofi/powermenu/powermenu.sh"; }
     Mod+Shift+C repeat=false    { spawn "~/.config/waybar/restart_waybar.sh"; }
 
-    // XF86AudioRaiseVolume  allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "2%+"; }
-    // XF86AudioLowerVolume  allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "2%-"; }
-    // XF86AudioMute         allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
-    // XF86AudioMicMute      allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
-    // XF86MonBrightnessUp   allow-when-locked=true { spawn "brightnessctl" "set" "+5%"; }
-    // XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "set" "5%-"; }
+    XF86AudioRaiseVolume  allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "2%+"; }
+    XF86AudioLowerVolume  allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "2%-"; }
+    XF86AudioMute         allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
+    XF86AudioMicMute      allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
+    XF86MonBrightnessUp   allow-when-locked=true { spawn "brightnessctl" "set" "+5%"; }
+    XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "set" "5%-"; }
 
-    XF86AudioRaiseVolume  allow-when-locked=true { spawn-sh "swayosd-client --output-volume +2 --max-volume 150"; }
-    XF86AudioLowerVolume  allow-when-locked=true { spawn-sh "swayosd-client --output-volume -2 --max-volume 150"; }
-    XF86AudioMute         allow-when-locked=true { spawn-sh "swayosd-client --output-volume mute-toggle"; }
-    XF86AudioMicMute      allow-when-locked=true { spawn-sh "swayosd-client --input-volume mute-toggle"; }
-    XF86MonBrightnessUp   allow-when-locked=true { spawn-sh "swayosd-client --brightness +5"; }
-    XF86MonBrightnessDown allow-when-locked=true { spawn-sh "swayosd-client --brightness -5"; }
+    // XF86AudioRaiseVolume  allow-when-locked=true { spawn-sh "swayosd-client --output-volume +2 --max-volume 150"; }
+    // XF86AudioLowerVolume  allow-when-locked=true { spawn-sh "swayosd-client --output-volume -2 --max-volume 150"; }
+    // XF86AudioMute         allow-when-locked=true { spawn-sh "swayosd-client --output-volume mute-toggle"; }
+    // XF86AudioMicMute      allow-when-locked=true { spawn-sh "swayosd-client --input-volume mute-toggle"; }
+    // XF86MonBrightnessUp   allow-when-locked=true { spawn-sh "swayosd-client --brightness +5"; }
+    // XF86MonBrightnessDown allow-when-locked=true { spawn-sh "swayosd-client --brightness -5"; }
 
     Mod+W repeat=false { toggle-overview; }
 
@@ -396,6 +396,6 @@ binds {
 
 debug {
    honor-xdg-activation-with-invalid-serial
-  // preview-render "screencast"
-  // wait-for-frame-completion-before-queueing
+   // preview-render "screencast"
+   wait-for-frame-completion-before-queueing
 }
