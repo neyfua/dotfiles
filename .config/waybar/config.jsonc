@@ -1,5 +1,5 @@
 {
-   "height": 27,
+   "height": 30,
    "layer": "bottom",
    "position": "top",
    "fixed-center": true,
@@ -27,19 +27,6 @@
    "niri/workspaces": {
       "format": "{value}",
       "tooltip": false,
-   },
-   "sway/workspaces": {
-      "disable-scroll": true,
-      "disable-markup": true,
-      "format": "{index}",
-      "tooltip": false,
-   },
-   "sway/window": {
-      "format": "{app_id} ~",
-      "max-length": 30,
-      "all-outputs": true,
-      "offscreen-css": true,
-      "offscreen-css-text": "(inactive)",
    },
    "niri/window": {
       "format": "{app_id} ~",
@@ -94,7 +81,7 @@
       "states": {
          "normal": 40,
          "warning": 100,
-         "critical": 150,
+         "critical": 250,
       },
       "on-click": "swayosd-client --output-volume mute-toggle",
       "on-click-right": "pavucontrol",

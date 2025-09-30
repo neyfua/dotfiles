@@ -39,7 +39,7 @@ disabled = false
 bash_indicator = "/bin/bash"
 fish_indicator = "/bin/fish"
 format = "[ $indicator ]($style)"
-style = "bg:surface fg:text"
+style = "bg:highlight-low fg:text"
 
 [git_branch]
 disabled = false

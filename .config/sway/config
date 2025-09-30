@@ -59,9 +59,6 @@ bindsym $mod+Ctrl+e exec nemo
 # Locksreen
 bindsym $mod+l exec swaylock
 
-# Start emojis chooser
-bindsym $mod+Period exec flatpak run com.tomjwatson.Emote
-
 # Kill focused window
 bindsym $mod+c kill
 

@@ -112,7 +112,7 @@ screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 environment {
   GTK_THEME "Rosepine-Dark"
   QT_QPA_PLATFORM "wayland"
-  SDL_VIDEODRIVER "wayland"
+  SDL_VIDEO_DRIVER "wayland"
   CLUTTER_BACKEND "wayland"
   ELECTRON_OZONE_PLATFORM_HINT "auto"
 }
@@ -223,7 +223,7 @@ binds {
     Mod+L repeat=false          { spawn "swaylock"; }
     Mod+Return repeat=false     { spawn "~/.config/rofi/launcher/launcher.sh"; }
     Mod+Shift+E repeat=false    { spawn "~/.config/rofi/powermenu/powermenu.sh"; }
-    Mod+Shift+C repeat=false    { spawn "~/.config/waybar/restart_waybar.sh"; }
+    Alt+9 repeat=false    { spawn "~/.config/waybar/restart_waybar.sh"; }
 
     XF86AudioRaiseVolume  allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "2%+"; }
     XF86AudioLowerVolume  allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "2%-"; }
