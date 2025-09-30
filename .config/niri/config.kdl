@@ -16,9 +16,9 @@ input {
       // drag false
       // drag-lock
       natural-scroll
-      accel-speed 0.5
+      accel-speed 0.6
       accel-profile "flat"
-      scroll-factor 1.3
+      scroll-factor 1.2
       scroll-method "two-finger"
       // scroll-button 273
       // tap-button-map "left-middle-right"
