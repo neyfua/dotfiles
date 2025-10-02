@@ -220,7 +220,7 @@ binds {
     Mod+N repeat=false          { spawn "foot" "nvim"; }
     Mod+E repeat=false          { spawn "foot" "yazi"; }
     Mod+Ctrl+E repeat=false     { spawn "nemo"; }
-    Mod+L repeat=false          { spawn "swaylock"; }
+    Mod+L repeat=false          { spawn "hyprlock"; }
     Mod+Return repeat=false     { spawn "~/.config/rofi/launcher/launcher.sh"; }
     Mod+Shift+E repeat=false    { spawn "~/.config/rofi/powermenu/powermenu.sh"; }
     Alt+9 repeat=false    { spawn "~/.config/waybar/restart_waybar.sh"; }
