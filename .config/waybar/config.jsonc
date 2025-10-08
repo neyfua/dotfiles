@@ -83,7 +83,7 @@
          "warning": 100,
          "critical": 250,
       },
-      "on-click": "swayosd-client --output-volume mute-toggle",
+      "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
       "on-click-right": "pavucontrol",
       "tooltip": false,
    },
@@ -123,8 +123,8 @@
          "󰃟",
          "󰃠"
       ],
-      "on-click": "swayosd-client --brightness +5",
-      "on-click-right": "swayosd-client --brightness -5",
+      "on-click": "brightnessctl set +5%",
+      "on-click-right": "brightnessctl set 5%-",
       "tooltip": false,
    },
    "cpu": {
