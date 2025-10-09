@@ -11,6 +11,7 @@ alias nv='nvim'
 alias py='python3'
 alias c='gcc'
 alias cpp='g++'
+alias rails="rails.ruby3.4"
 alias ga='git add'
 alias gc='git commit'
 alias gp='git push'

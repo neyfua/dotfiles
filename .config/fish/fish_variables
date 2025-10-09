@@ -1,5 +1,6 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
+SETUVAR --export CSCSharp:/home/neifua/School/csharp/
 SETUVAR --export EDITOR:nvim
 SETUVAR --export GTKLOCK_MODULE_DIR:/usr/lib/gtklock/modules
 SETUVAR --export --path PATH:/home/neifua/depot_tools\x1e/home/neifua/\x2elocal/bin\x1e/usr/local/bin\x1e/usr/bin\x1e/bin\x1e/home/neifua/\x2elmstudio/bin
