@@ -134,8 +134,8 @@
    },
    "memory": {
       "interval": 1,
-      // "format": " {percentage}%",
-      "format": " {used}gb",
+      "format": " {percentage}%",
+      // "format": " {used}gb",
       "tooltip": false,
    },
    "mpris": {
