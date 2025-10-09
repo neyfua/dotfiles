@@ -16,9 +16,9 @@ input {
       // drag false
       // drag-lock
       natural-scroll
-      accel-speed 0.6
+      accel-speed 0.5
       accel-profile "flat"
-      scroll-factor 1.2
+      scroll-factor 0.5
       scroll-method "two-finger"
       // scroll-button 273
       // tap-button-map "left-middle-right"
@@ -112,9 +112,10 @@ screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
 environment {
   // GTK_THEME "Rosepine-Dark"
-  // WAYLAND_DISPLAY "WAYLAND_DISPLAY"
-  // XDG_RUNTIME_DIR "XDG_RUNTIME_DIR"
+  QT_QPA_PLATFORMTHEME "gtk3"
+  QT_QPA_PLATFORMTHEME_QT6 "gtk3"
   QT_QPA_PLATFORM "wayland"
+  // QT_QPA_PLATFORM "xcb"
   SDL_VIDEO_DRIVER "wayland"
   CLUTTER_BACKEND "wayland"
   ELECTRON_OZONE_PLATFORM_HINT "auto"
