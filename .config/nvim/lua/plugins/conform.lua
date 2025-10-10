@@ -19,6 +19,7 @@ return {
 				javascript = { "prettierd", "prettier", "clang-format", stop_after_first = true },
 				json = { "clang-format", "prettierd", "prettier", stop_after_first = true },
 				php = { "pretty-php" },
+				ruby = { "rubyfmt" },
 			},
 
 			format_on_save = {
