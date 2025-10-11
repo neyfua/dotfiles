@@ -21,7 +21,7 @@
       "backlight",
       "custom/split",
       "battery",
-      // "clock",
+      "clock",
       "tray",
    ],
    "niri/workspaces": {
